@@ -1,4 +1,4 @@
-@extends('comment.admin_base')
+@extends('common.admin_base')
 
 @section('title','管理后台-商品SKU属性')
 

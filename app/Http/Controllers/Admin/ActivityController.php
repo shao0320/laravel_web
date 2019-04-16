@@ -9,7 +9,7 @@ class ActivityController extends Controller
     public function list()
     {
         $activity = new Activity();
-        $assign['activites'] = $this->getLists($activity);
+        $assign['activites'] = $this->getDataList($activity);
         return view('admin.activity.list',$assign);
     }
     //添加页面

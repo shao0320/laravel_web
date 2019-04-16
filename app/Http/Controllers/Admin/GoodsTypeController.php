@@ -13,11 +13,11 @@ class GoodsTypeController extends Controller
     {
         $goodsType = new GoodsType();
 
-        $assign['list'] = $this->getLists($goodsType);
+        $assign['list'] = $this->getDataList($goodsType);
 
         return view("admin.goodsType.list",$assign);
     }
-
+    
     //添加页面
     public function add()
     {

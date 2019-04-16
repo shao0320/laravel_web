@@ -36,52 +36,57 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-4">
-                     ###
+                     <span class="form-control">{{$info->username}}</span>
                     </div>
                      <label class="col-sm-2 control-label">手机号</label>
                     <div class="col-sm-4">
+                         {{$info->phone}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">账户积分</label>
                     <div class="col-sm-4">
-                       sddssdsssd
+                        {{$info->score}}
                     </div>
                      <label class="col-sm-2 control-label">账户余额</label>
                     <div class="col-sm-4">
+                         {{$info->balance}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">状态</label>
                     <div class="col-sm-4">
-                       
+                        {{$info->status==1 ? "未激活" : "正常"}}
                     </div>
                      <label class="col-sm-2 control-label">默认收货地址</label>
                     <div class="col-sm-4">
+                        #####
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">邮箱</label>
                     <div class="col-sm-4">
-                       
+                        {{$info->email}}
                     </div>
                      <label class="col-sm-2 control-label">性别</label>
                     <div class="col-sm-4">
+                         {{$info->sex == 1 ? "男" :"女"}}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">紧急联系人</label>
                     <div class="col-sm-4">
-                        
+                         {{$info->link_name}}
                     </div>
                      <label class="col-sm-2 control-label">紧急联系人手机号</label>
                     <div class="col-sm-4">
+                         {{$info->link_phone}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">激活码</label>
+                    <label class="col-sm-2 control-label">邀请码</label>
                     <div class="col-sm-4">
-                        
+                         {{$info->invite_code}}
                     </div>
                 
                 </div>
@@ -102,13 +107,17 @@
                     </tr>
                     </thead>
                     <tbody>
+                  @if(!empty($bonus_list))
+                   @foreach($bonus_list as $bonus)
                     <tr>
-                        <td>121321321</td>
-                        <td>##</td>
-                        <td>##</td>
-                        <td>##</td>
-                        <td>##</td>
+                        <td>{{$bonus['bonus_name']}}</td>
+                        <td>{{$bonus['money']}}</td>
+                        <td>{{$bonus['start_time']}}</td>
+                        <td>{{$bonus['end_time']}}</td>
+                        <td>{{$bonus['min_money']}}</td>
                     </tr>
+                    @endforeach
+                  @endif
                     </tbody>
                 </table>
             </div><!-- table-responsive -->
@@ -188,7 +197,6 @@
                     }
                 }
             })
-
             
         </script>
 @endsection

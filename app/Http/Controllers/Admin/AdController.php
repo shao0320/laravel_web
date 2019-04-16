@@ -73,7 +73,7 @@ class AdController extends Controller
     {
         $adPosition = new AdPosition();
 
-        $assign['position'] = $adPosition->getLists();
+        $assign['position'] = $adPosition->getPageList();
 
         $assign['info'] = Ad::getFirstInfo($id);
 

@@ -1,4 +1,4 @@
-@extends("comment.base")
+@extends("common.base")
 
 @section("title","第一个larevel视图")
 

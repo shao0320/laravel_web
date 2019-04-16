@@ -1,4 +1,4 @@
-@extends("comment.admin_base")
+@extends("common.admin_base")
 
 @section("title","后台管理-用户添加")
 

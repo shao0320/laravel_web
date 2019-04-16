@@ -18,7 +18,7 @@ class BrandController extends Controller
     {
         $list = new Brand();
 
-        $data = $this->getLists($list);
+        $data = $this->getDataList($list);
 
         $return = [
             "code" => 2000,

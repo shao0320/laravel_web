@@ -12,7 +12,7 @@ class PaymentController extends Controller
     {
         $payment = new Payment();
 
-        $assign['list'] = $this->getLists($payment);
+        $assign['list'] = $this->getDataList($payment);
 //        dd($assign);
         return view("admin.payment.list",$assign);
     }

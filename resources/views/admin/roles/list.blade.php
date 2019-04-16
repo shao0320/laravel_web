@@ -1,4 +1,4 @@
-@extends("comment.admin_base")
+@extends("common.admin_base")
 
 @section("title","管理后台-角色列表")
 	<!-- 页面顶部信息 -->

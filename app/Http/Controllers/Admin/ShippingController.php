@@ -12,7 +12,7 @@ class ShippingController extends Controller
     {
         $shipping = new Shipping();
 
-        $assign['list'] = $this->getLists($shipping);
+        $assign['list'] = $this->getPageList($shipping);
 
         return view("admin.shipping.list",$assign);
     }

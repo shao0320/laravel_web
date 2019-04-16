@@ -11,7 +11,7 @@ class AdPositionController extends Controller
     public function  list()
     {
 
-        $assign['list'] = AdPosition::getLists();
+        $assign['list'] = AdPosition::getDataList();
 
         return view("admin.position.list",$assign);
     }

@@ -13,7 +13,7 @@ class RegionController extends Controller
     {
         $region = new Region();
 
-        $assign['region_list']  = $this->getLists($region,['p_id'=>$pid]);
+        $assign['region_list']  = $this->getPageList($region,['p_id'=>$pid]);
 //        dd($assign);
         return view("admin.region.list",$assign);
     }
@@ -22,7 +22,7 @@ class RegionController extends Controller
     public function add()
     {
         $region = new Region();
-        $region_list = $this->getLists($region);
+        $region_list = $this->getPageList($region);
 
         $assign['regionData'] = ToolsAdmin::buildTreeString($region_list,0,0,"p_id");
 

@@ -1,4 +1,4 @@
-@extends('comment.admin_base')
+@extends('common.admin_base')
 
 @section('title','管理后台-支付方式编辑')
 

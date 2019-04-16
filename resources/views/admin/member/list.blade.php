@@ -1,4 +1,4 @@
-@extends('comment.admin_base')
+@extends('common.admin_base')
 
 @section('title','管理后台会员列表')
 
@@ -32,26 +32,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if(!empty($list))
-                        @foreach($list as $v)
-                            <tr>
-                                <td>{{$v->id}}</td>
-                                <td><img  style="width:60px;" src="{{$v->image_url == "" ? '/images/photos/media2.png' : $v->image_url}}"></td>
-                                <td>{{$v->phone}}</td>
-                                <td>{{$v->username}}</td>
-                                <td>{{$v->score}}</td>
-                                <td>{{$v->balance}}</td>
-                                <td>{{$v->status == 1 ? "未激活" : "正常"}}</td>
-                                <td>
-                                    <a class="btn btn-sm btn-success" href="/admin/member/detail/{{$v->id}}">查看详情
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
+                @if(!empty($members))
+                  @foreach($members as $mem)
+                    <tr>
+                        <td>{{$mem->id}}</td>
+                        <td><img  style="width:60px;" src="{{$mem->image_url!="" ? $mem->image_url : '/images/photos/media2.png'}}"></td>
+                        <td>{{$mem->phone}}</td>
+                        <td>{{$mem->username}}</td>
+                        <td>{{$mem->score}}</td>
+                        <td>{{$mem->balance}}</td>
+                        <td>{{$mem->status ==1 ? "未激活" : "正常"}}</td>
+                        <td>
+                            <a class="btn btn-sm btn-success" href="/admin/member/detail/{{$mem->id}}">查看详情
+                            </a>
+                        </td>
+                    </tr>
+                  @endforeach
+                @endif
                     </tbody>
                 </table>
-                {{$list->links()}}
+                {{$members->links()}}
             </div><!-- table-responsive -->
         </div>
     </div>
@@ -65,48 +65,41 @@
             },
             //构造函数
             created:function(){
-
             },
             methods: {
                 //商品列表
                 getGoodsList: function(){
                     var that = this;
-
                     $.ajax({
                         url: "/goods/get/data",
                         type: "post",
                         data: {_token: $("input[name=_token"]).val()},
                         dataType:"json",
                         success: function(res){
-
                         }
                     })
                 },
                 //修改商品属性
                 changeAttr: function(id,key,val){
                     var that = this;
-
                     $.ajax({
                         url: "/goods/change/attr",
                         type: "post",
                         data: {_token: $("input[name=_token"]).val()},
                         dataType:"json",
                         success: function(res){
-
                         }
                     })
                 },
                 //执行删除的操作
                 goodsDel:function(id){
                     var that = this;
-
                     $.ajax({
                         url: "/goods/del/"+id,
                         type: "post",
                         data: {_token: $("input[name=_token"]).val()},
                         dataType:"json",
                         success: function(res){
-
                         }
                     })
                 }
